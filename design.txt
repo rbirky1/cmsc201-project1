@@ -1,0 +1,169 @@
+five minutes per plane
+1st plane waited 5 min
+2nd plane waited 10 min…
+
+total passengers/total time
+
+# Filename: design.txt
+# Author:   Rachael Birky
+# Date:     04.16.12
+# Email:    rbirky1@umbc.edu
+# Section:  02
+# 
+# Project 1 is a program that analyzes three sets of data
+#  representing airplanes, and determines the order of take off
+#  in the event of poor weather using priority algorithms
+
+Algorithm Design:
+
+I.   The greeting is displayed to the user by a call to printGreeting()
+II.  The program reads the three runway files
+	A. Use a loop to read each line
+	    1. strip the /n and split by spaces
+	    2. Create an airplane with information, push into appropriate stack
+	        (runway1.txt => runway1 stack etc)
+		i. this will cast the passenger count as an integer
+	B. Stack.py file will ensure reversed order upon retrieval
+III. "While loop" to retrieve information about the first airplane in each stack
+      by calling .top() until all stacks are empty (us not isEmpty(stack#))
+	A. Store passenger count integers in a list
+	B. Use max() function to determine priority plane
+	B. Use .pop() to move appropriate airplane to runway4 queue
+IV.  Loop through runway4 queue using a for loop
+	A. open an outFile, write formatted data to outFile
+	B. print the formatted data to screen as well
+V.   Calculate wait time and print to screen and file
+	A. "For loop" through runway4, by twos, to retrieve all passenger count
+	    add each count to a total
+	B. (5 * number of planes) / total passenger count
+	C. print to screen and outFile, close outFile
+________________________________________________________________________________
+
+Constants:
+
+FILE_ONE = "runway1.txt"
+FILE_TWO = "runway2.txt"
+FILE_THREE = "runway3.txt"
+# since filenames should be consistent
+
+________________________________________________________________________________
+
+Functions:
+
+# printGreeting() displays a greeting & explanation of the program to the user
+# input:  None
+# output: None
+def printGreeting():
+
+# makeRunway() loops through text files and saves information in stacks
+# input:  filename
+# output: a runway of planes, order reversed
+def getRunways(inFile):
+
+# makePlane() creates an instance of a plane
+# input:  line of text in runway file
+# output: airplane object
+def makePlane(line):
+
+# makeQueue() places airplanes in a queue by priority
+# input:  runway 1, 2, 3 stacks
+# output: runway4 queue
+def makeQueue():
+
+# getNext() compares the top planes in the stacks and returns highest priority
+# input:  runway 1, 2, 3 stack
+# output: airplane  with highest priority
+def getNext():
+
+# printQueue() loops through items and prints the data, formatted
+# input:  a queue
+# output: a string of plane names and passenger counts
+printQueue():
+
+# waitTime() calculates the wait time per passenger
+# input:  runway4 queue
+# output: float wait time per passenger
+def waitTime():
+
+________________________________________________________________________________
+________________________________________________________________________________
+# Filename: design.txt
+# Author:   Rachael Birky
+# Date:     04.16.12
+# Email:    rbirky1@umbc.edu
+# Section:  02
+# 
+# queue.py defines an abstract data type, and its methods.
+#  A queue is a first-in, first-out list.
+# Methods included ensure first-in, first-out appending and
+#  returning of values.
+
+Functions:
+
+# queue() creates an empty queue
+# Inputs:  none
+# Outputs: an empty queue
+def queue():
+
+# enqueue() adds a given item to the given queue
+# Inputs:  a queue, an item to be added
+# Outputs: None
+def enqueue(aQueue, item):
+
+# front() retrieves the item at the head of the queue
+#  without deleting it!
+# Inputs:  a queue
+# Outputs: the first item, if not an empty queue
+def front(aQueue):
+
+# isEmpty() checks to see if queue is empty
+# Inputs: a queue
+# Output: True is queue is empty, False if not
+def isEmpty(aQueue):
+
+# dequeue() retrieves and deletes the first item
+#  of the queue
+# Inputs:  a queue
+# Outputs: the first item, if not an empty queue
+def dequeue(aQueue):
+
+________________________________________________________________________________
+________________________________________________________________________________
+# Filename: design.txt
+# Author:   Rachael Birky
+# Date:     04.16.12
+# Email:    rbirky1@umbc.edu
+# Section:  02
+# 
+# stack.py defines an abstract data type, and its methods.
+#  A stack is a first-in, last-out list.
+# Methods included ensure first-in, last-out appending
+#  and returning of values
+
+Functions:
+
+# stack() creates a new stack
+# Inputs: None
+# Output: an empty stack
+def stack():
+
+# top() returns the item on top of the stack without popping
+# Inputs: a stack
+# Output: an item from the stack, if not empty
+def top(aStack):
+
+# isEmpty(aList) checks to see if stack is empty
+# Inputs: aList, a stack
+# Output: True if stack is empty, False if not
+def isEmpty(aStack):
+
+# push() pushes the item passed in onto the stack passed.
+# Inputs: aList, an item to add
+# Output: None
+def push(aStack, item)
+
+# pop() takes out an item from the given stack in and returns it.
+# Input: a stack
+# Output: the item at [-1] popped from the stack or
+#         "Empty Stack" if the stack was empty
+def pop(aStack):

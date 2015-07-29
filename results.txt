@@ -1,0 +1,11 @@
+
+  P3 130
+  D2 200
+  R1 150
+  D1 25
+  A2 105
+  J3 12
+  F2 100
+  A1 50
+
+Average wait time is 17.99 minutes per person
